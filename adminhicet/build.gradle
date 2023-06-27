@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.giriprasath.vm.hicet.e_bookhicet'
+    namespace 'com.giriprasath.vm.hicet.adminhicet'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.giriprasath.vm.hicet.e_bookhicet"
+        applicationId "com.giriprasath.vm.hicet.adminhicet"
         minSdk 24
         targetSdk 32
         versionCode 1
