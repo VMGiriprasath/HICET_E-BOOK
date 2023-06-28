@@ -200,7 +200,6 @@ public class PdfAddActivity extends AppCompatActivity {
 
         //setup data to upload
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("uid", "" + uid);
         hashMap.put("id", "" + timestamp);
         hashMap.put("title", "" + title);
         hashMap.put("description", "" + description);
