@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     //Progress Dialogue
     private ProgressDialog progressDialog;
-    String[] depatments = {"IT", "CSE", "AI & ML", "ECE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME"};
+    String[] depatments = {"IT", "CSE", "AI & ML", "ECE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME","AUTOMOBILE","FOOD TECH","CHEMICAL"};
     String[] year = {"I YEAR", "II YEAR", "III YEAR", "IV YEAR"};
     ArrayAdapter<String> arrayAdapter_year;
     ArrayAdapter<String> arrayAdapter_department;
