@@ -48,7 +48,7 @@ public class PdfAddActivity extends AppCompatActivity {
     private Uri pdfuri = null;
     private FirebaseAuth firebaseAuth;
     String spinnerdepartmentglobal, spinneryearglobal;
-    String[] depatments = {"IT", "CSE", "AI & ML", "ECE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME","AUTOMOBILE","FOOD TECH","CHEMICAL"};
+    String[] depatments = {"IT", "CSE", "AI & ML", "ECE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME", "AUTOMOBILE", "FOOD TECH", "CHEMICAL"};
     String[] year = {"I YEAR", "II YEAR", "III YEAR", "IV YEAR"};
     ArrayAdapter<String> arrayAdapter_year;
     ArrayAdapter<String> arrayAdapter_department;
@@ -195,7 +195,6 @@ public class PdfAddActivity extends AppCompatActivity {
         progressDialog.setMessage("Uploading pdf info...");
         String uid = firebaseAuth.getUid();
         String appen = spinneryearglobal + spinnerdepartmentglobal;
-
 
 
         //setup data to upload
