@@ -8,7 +8,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Credentials.RegisterActivity">
+        tools:context=".Credentials.credential.RegisterActivity">
 
         <RelativeLayout
             android:id="@+id/relativelayout1"
@@ -69,8 +69,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Full Name"
-                    android:textColorHint="@color/black">
+                    android:hint="Full Name">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regname"
@@ -90,8 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/n"
                     android:layout_marginTop="20dp"
-                    android:hint="E-mail"
-                    android:textColorHint="@color/black">
+                    android:hint="E-mail">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/reg_email"
@@ -111,7 +109,6 @@
                     android:layout_below="@id/ef"
                     android:layout_marginTop="20dp"
                     android:hint="Password"
-                    android:textColorHint="@color/black"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -133,7 +130,6 @@
                     android:layout_below="@id/pf"
                     android:layout_marginTop="20dp"
                     android:hint="Confirm Password"
-                    android:textColorHint="@color/black"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -148,18 +144,38 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
+                    android:id="@+id/dep"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
-
-                    android:layout_height="52dp"
+                    android:layout_height="wrap_content"
                     android:layout_below="@id/cpf"
                     android:layout_marginTop="20dp"
-                    android:hint="Select an option">
+                    android:hint="Select Department">
 
-                    <Spinner
-                        android:id="@+id/spinner"
+                    <AutoCompleteTextView
+                        android:id="@+id/spinnerdepartment"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:inputType="none"
+                        android:padding="15dp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/year"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dep"
+                    android:layout_marginTop="20dp"
+                    android:hint="Select Year">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/spinneryear"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="none"
+                        android:padding="15dp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -168,7 +184,7 @@
                     android:id="@+id/register_btn"
                     android:layout_width="match_parent"
                     android:layout_height="60sp"
-                    android:layout_below="@id/textInputLayout"
+                    android:layout_below="@id/year"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"

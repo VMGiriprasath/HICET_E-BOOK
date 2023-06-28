@@ -196,21 +196,18 @@ public class PdfAddActivity extends AppCompatActivity {
         String uid = firebaseAuth.getUid();
         String appen = spinneryearglobal + spinnerdepartmentglobal;
 
-        String titlecv = title.substring(0,1).toUpperCase() ;
-        String descv = description.substring(0,1).toUpperCase() ;
-        String fac = facultyname.substring(0,1).toUpperCase() ;
 
 
         //setup data to upload
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", "" + uid);
         hashMap.put("id", "" + timestamp);
-        hashMap.put("title", "" + titlecv);
-        hashMap.put("description", "" + descv);
+        hashMap.put("title", "" + title);
+        hashMap.put("description", "" + description);
         hashMap.put("categoryId", "" + selectedCategoryId);
         hashMap.put("Url", "" + uploadedpdfurl);
         hashMap.put("timestamp", timestamp);
-        hashMap.put("facultyname", fac);
+        hashMap.put("facultyname", facultyname);
         hashMap.put("CurrentYear", spinneryearglobal);
         hashMap.put("Department", spinnerdepartmentglobal);
         hashMap.put("Condition", appen);
@@ -221,9 +218,6 @@ public class PdfAddActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Void unused) {
                 progressDialog.dismiss();
-
-
-                Log.d(TAG, "Onsuccess:Successfully uploaded in db ");
                 Toast.makeText(getApplicationContext(), "Successfully Uploaded", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
@@ -231,7 +225,6 @@ public class PdfAddActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 progressDialog.dismiss();
-                Log.d(TAG, "OnFailure:Failed to upload in db " + e.getMessage());
                 Toast.makeText(getApplicationContext(), "Failed to uplaod in db" + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -310,13 +303,10 @@ public class PdfAddActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == PDF_PICK_CODE) {
-                Log.d(TAG, "on Activity :PDF_PICKED");
                 pdfuri = data.getData();
-                Log.d(TAG, "onActivity:URI" + pdfuri);
             }
 
         } else {
-            Log.d(TAG, "OnActivityresult:cancelled picking pdf");
             Toast.makeText(getApplicationContext(), "Canelled Picking pdf", Toast.LENGTH_SHORT).show();
 
         }
