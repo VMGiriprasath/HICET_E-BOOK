@@ -37,10 +37,10 @@ public class AdminHomeActivity extends AppCompatActivity {
         binding = ActivityAdminHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
         //Firebase
         firebaseAuth = FirebaseAuth.getInstance();
         //method call...
-        checkuser();
         loadCategory();
         //add pdf fab click
         binding.addpdffab.setOnClickListener(new View.OnClickListener() {
@@ -104,8 +104,5 @@ public class AdminHomeActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void checkuser() {
     }
 }

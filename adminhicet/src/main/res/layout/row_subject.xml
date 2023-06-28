@@ -26,10 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginEnd="15dp"
-            android:textColor="@color/black"
             android:layout_weight="1"
             android:clickable="true"
             android:text="Subject Title"
+            android:textColor="@color/black"
             android:textSize="18dp" />
 
         <ImageButton
