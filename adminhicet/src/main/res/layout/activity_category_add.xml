@@ -10,7 +10,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/yellow"
         android:id="@+id/toolbar"
-        app:titleTextColor="@color/white"
+        app:titleTextColor="@color/black"
         app:title="Add Subject"/>
     <EditText
         android:id="@+id/catergory_title"

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 
 import com.giriprasath.vm.hicet.adminhicet.Adapter.AdapterCategory;
@@ -57,6 +59,27 @@ public class AdminHomeActivity extends AppCompatActivity {
         });
 
         //when search button is clicked
+        binding.searchet.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    adapterCategory.getFilter().filter(s);
+
+                } catch (Exception e) {
+
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
     }
@@ -69,7 +92,7 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 categoryArrayList.clear();
                 for (DataSnapshot ds : snapshot.getChildren()) {
-           ModelCategory model = ds.getValue(ModelCategory.class);
+                    ModelCategory model = ds.getValue(ModelCategory.class);
                     categoryArrayList.add(model);
                 }
                 adapterCategory = new AdapterCategory(AdminHomeActivity.this, categoryArrayList);

@@ -12,7 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/yellow"
         android:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-        android:titleTextColor="@color/white"
+        android:titleTextColor="@color/black"
 
         />
 
@@ -210,12 +210,11 @@
 
     <LinearLayout
         android:id="@+id/linear"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:fitsSystemWindows="true"
-        android:orientation="horizontal"
-        android:weightSum="1">
+        android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/downloadbookbtn"
@@ -229,11 +228,13 @@
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18dp"
+            android:layout_weight="1"
             app:backgroundTint="@color/yellow" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/viewbook"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
             android:layout_height="55dp"
             android:background="@color/yellow"
             android:backgroundTint="@color/yellow"
