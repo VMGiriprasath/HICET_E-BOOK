@@ -129,6 +129,7 @@ public class StundentLogin extends AppCompatActivity {
     }
 
     private void checkuser() {
+
     }
 
     private void loaddata() {
@@ -139,68 +140,55 @@ public class StundentLogin extends AppCompatActivity {
         ref0.child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String currentYearuser = "" + snapshot.child("CurrentYear").getValue();
-                String currentDepartmentuser = "" + snapshot.child("Department").getValue();
-                if (currentYearuser.equals("I YEAR")) {
-                    if (currentDepartmentuser.equals("IT")) {
-                        DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("Books");
-                        ref1.get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
-                            @Override
-                            public void onSuccess(DataSnapshot dataSnapshot) {
-                                DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("Books");
-                                ref1.orderByChild("Condition").equalTo("I YEARIT").addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        {
-                                            binding.progressbar.setVisibility(View.GONE);
-
-                                            pdfArrayList.clear();
-                                            for (DataSnapshot ds : snapshot.getChildren()) {
-                                                Modelpdf model = ds.getValue(Modelpdf.class);
-                                                pdfArrayList.add(model);
+                String condition1 = "" + snapshot.child("Condition").getValue();
 
 
-                                            }
-                                            adapterpdfuser = new Adapterpdfuser(StundentLogin.this, pdfArrayList);
-                                            if (pdfArrayList.size() == 0) {
-                                                binding.nonotes.setVisibility(View.VISIBLE);
-                                                binding.reporticon.setVisibility(View.VISIBLE);
+                DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("Books");
+                ref1.orderByChild("Condition").equalTo(condition1).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        {
+                            binding.progressbar.setVisibility(View.GONE);
 
-                                            } else {
-                                                binding.bookrv.setAdapter(adapterpdfuser);
-                                                binding.nonotes.setVisibility(View.INVISIBLE);
-                                                binding.reporticon.setVisibility(View.INVISIBLE);
+                            pdfArrayList.clear();
+                            for (DataSnapshot ds : snapshot.getChildren()) {
+                                Modelpdf model = ds.getValue(Modelpdf.class);
+                                pdfArrayList.add(model);
 
 
-                                            }
-
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
-                                        binding.progressbar.setVisibility(View.GONE);
-
-                                    }
-                                });
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(StundentLogin.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
-                                binding.progressbar.setVisibility(View.GONE);
+                            adapterpdfuser = new Adapterpdfuser(StundentLogin.this, pdfArrayList);
+
+                            if (pdfArrayList.size() == 0) {
+                                binding.nonotes.setVisibility(View.VISIBLE);
+                                binding.reporticon.setVisibility(View.VISIBLE);
+
+                            } else {
+                                binding.bookrv.setAdapter(adapterpdfuser);
+                                binding.nonotes.setVisibility(View.INVISIBLE);
+                                binding.reporticon.setVisibility(View.INVISIBLE);
+
+
                             }
-                        });
+
+                        }
                     }
 
-                }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        binding.progressbar.setVisibility(View.GONE);
+                    }
+                });
+
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });//IT End
+        });
+
 
     }
 

@@ -144,6 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
                         hashMap.put("Department", a);
                         hashMap.put("CurrentYear", b);
                         hashMap.put("Timestamp", timestamp);
+                        hashMap.put("Condition",b+a);
                         FirebaseDatabase firebaseDatabase;
                         DatabaseReference ref;
                         firebaseDatabase = FirebaseDatabase.getInstance();
