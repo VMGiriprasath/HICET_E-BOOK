@@ -196,16 +196,21 @@ public class PdfAddActivity extends AppCompatActivity {
         String uid = firebaseAuth.getUid();
         String appen = spinneryearglobal + spinnerdepartmentglobal;
 
+        String titlecv = title.substring(0,1).toUpperCase() ;
+        String descv = description.substring(0,1).toUpperCase() ;
+        String fac = facultyname.substring(0,1).toUpperCase() ;
+
+
         //setup data to upload
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", "" + uid);
         hashMap.put("id", "" + timestamp);
-        hashMap.put("title", "" + title);
-        hashMap.put("description", "" + description);
+        hashMap.put("title", "" + titlecv);
+        hashMap.put("description", "" + descv);
         hashMap.put("categoryId", "" + selectedCategoryId);
         hashMap.put("Url", "" + uploadedpdfurl);
         hashMap.put("timestamp", timestamp);
-        hashMap.put("facultyname", facultyname);
+        hashMap.put("facultyname", fac);
         hashMap.put("CurrentYear", spinneryearglobal);
         hashMap.put("Department", spinnerdepartmentglobal);
         hashMap.put("Condition", appen);

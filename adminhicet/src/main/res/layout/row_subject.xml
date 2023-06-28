@@ -27,6 +27,7 @@
             android:layout_gravity="center"
             android:layout_marginEnd="15dp"
             android:layout_weight="1"
+            android:inputType="textCapSentences"
             android:clickable="true"
             android:text="Subject Title"
             android:textColor="@color/black"

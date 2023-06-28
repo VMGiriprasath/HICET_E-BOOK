@@ -51,7 +51,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/pdfrl"
-                    android:text="Title Notes" />
+                    android:text="Book Notes" />
                 <!--Table-->
                 <TableLayout
                     android:layout_width="match_parent"
@@ -191,7 +191,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Description of Notes : "
+                android:text="Description of Book : "
                 android:textColor="@color/black"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -224,7 +224,7 @@
             android:backgroundTint="@color/yellow"
             android:fitsSystemWindows="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="Download Notes"
+            android:text="Download Book"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18dp"
@@ -240,7 +240,7 @@
             android:backgroundTint="@color/yellow"
             android:fitsSystemWindows="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:text="Read Notes"
+            android:text="Read Book"
             android:textAllCaps="false"
             android:textColor="@color/black"
             android:textSize="18dp"

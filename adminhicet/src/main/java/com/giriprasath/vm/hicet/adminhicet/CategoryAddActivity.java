@@ -72,10 +72,12 @@ public class CategoryAddActivity extends AppCompatActivity {
                 progressDialog.setMessage("Adding Subject...");
                 progressDialog.show();
                 long timestamp = System.currentTimeMillis();
+                String name = category.substring(0,1).toUpperCase() + category.substring(1);
+
                 //Hashmap
                 HashMap<String, Object> hashMap = new HashMap<>();
                 hashMap.put("id", "" + timestamp);
-                hashMap.put("category", "" + category);
+                hashMap.put("category", "" + name);
                 hashMap.put("timestamp", timestamp);
                 hashMap.put("uid", "" + firebaseAuth.getUid());
                 //Firebase Database

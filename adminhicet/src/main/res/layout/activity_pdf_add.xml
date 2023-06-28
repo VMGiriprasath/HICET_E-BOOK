@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/yellow"
-            app:title="Add New Notes"
+            app:title="Add New E-Book"
             app:titleTextColor="@color/black" />
 
         <RelativeLayout
@@ -48,7 +48,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-                android:hint="Notes Title"
+                android:hint="Book Title"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
                 android:padding="15dp"
@@ -62,7 +62,7 @@
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
-                android:hint="Notes Description"
+                android:hint="Book Description"
                 android:inputType="textPersonName"
                 android:padding="15dp"
                 android:textColor="@color/black" />

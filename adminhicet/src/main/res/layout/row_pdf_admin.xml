@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/pdfrl"
             android:maxLines="1"
-            android:text="Notes Title" />
+            android:text="Book Title" />
 
         <TextView
             android:id="@+id/desctv"
@@ -46,7 +46,7 @@
             android:layout_toEndOf="@id/pdfrl"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text="Notes Description" />
+            android:text="Book Description" />
 
         <TextView
             android:id="@+id/categoryTv"

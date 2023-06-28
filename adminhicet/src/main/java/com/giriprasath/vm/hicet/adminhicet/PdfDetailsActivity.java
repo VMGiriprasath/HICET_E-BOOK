@@ -45,6 +45,7 @@ public class PdfDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityPdfDetailsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         FirebaseDatabase.getInstance().getReference("Books");
 
         //toolbar
@@ -101,7 +102,7 @@ public class PdfDetailsActivity extends AppCompatActivity {
                 String date = getDate(timestamp);
                 String time = getTime(timestamp);
                 MyApplication.loadcategory("" + categoryid, binding.categoryTv);
-                binding.toolbar.setTitle("Notes");
+                binding.toolbar.setTitle("Book Details");
 
                 //set data
                 binding.titleTv.setText(bookTitle);
