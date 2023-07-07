@@ -29,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.HolderCategory> implements Filterable {
-    private Context context;
+    private final Context context;
     public ArrayList<ModelCategory> categoryArrayList, filterlist;
     private RowSubjectBinding binding;
     private FilterCategory filter;

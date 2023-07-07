@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Credentials.LoginActivity">
-
+r
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="15dp">
+        android:layout_margin="20dp">
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/logo" />
 
@@ -48,6 +48,8 @@
             android:backgroundTint="@color/yellow"
             android:text="Login"
             android:textAllCaps="false"
+            app:backgroundTint="@color/yellow"
+            android:background="@color/yellow"
             android:textColor="@color/black"
             android:textSize="18dp" />
 

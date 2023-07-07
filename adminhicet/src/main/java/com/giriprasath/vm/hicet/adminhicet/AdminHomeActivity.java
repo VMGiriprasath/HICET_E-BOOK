@@ -40,6 +40,8 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         //Firebase
         firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
         //method call...
         loadCategory();
         //add pdf fab click

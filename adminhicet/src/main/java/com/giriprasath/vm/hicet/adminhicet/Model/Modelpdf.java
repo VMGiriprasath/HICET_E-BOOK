@@ -1,14 +1,12 @@
 package com.giriprasath.vm.hicet.adminhicet.Model;
 
 public class Modelpdf {
-    String uid, id, title, description, categoryId, Url, facultyname,CurrentYear,Department;
+    private String uid, id, title, description, categoryId, Url, facultyname, CurrentYear, Department;
 
-    long timestamp;
+    private long timestamp;
 
     public Modelpdf() {
     }
-
-
 
 
     public Modelpdf(String uid, String id, String title, String description, String categoryId, String url, long timestamp, String facultyname, String CurrentYear, String Department) {
@@ -20,8 +18,8 @@ public class Modelpdf {
         this.Url = url;
         this.timestamp = timestamp;
         this.facultyname = facultyname;
-        this.CurrentYear=CurrentYear;
-        this.Department=Department;
+        this.CurrentYear = CurrentYear;
+        this.Department = Department;
     }
 
     public String getUid() {
@@ -87,6 +85,7 @@ public class Modelpdf {
     public void setFacultyname(String facultyname) {
         this.facultyname = facultyname;
     }
+
     public String getCurrentYear() {
         return CurrentYear;
     }

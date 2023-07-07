@@ -29,7 +29,7 @@ public class PdfDetailsActivity extends AppCompatActivity {
     String bookid, bookTitle, bookUrl;
     private ActivityPdfDetailsBinding binding;
     //request permision
-    private ActivityResultLauncher<String> requestpermissionauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+    private final ActivityResultLauncher<String> requestpermissionauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
 
         if (isGranted) {
             MyApplication.downloadbook(this, "" + bookid, "" + bookTitle, "" + bookUrl);

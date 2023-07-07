@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EBookHICET"
         tools:targetApi="31">
+
         <activity
             android:name=".Credentials.Application.MyApplication"
             android:exported="false">

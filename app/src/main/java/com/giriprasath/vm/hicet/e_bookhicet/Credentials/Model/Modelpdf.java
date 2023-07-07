@@ -1,6 +1,6 @@
 package com.giriprasath.vm.hicet.e_bookhicet.Credentials.Model;
 
-public class Modelpdf {
+public class Modelpdf  {
     String uid, id, title, description, categoryId, Url, facultyname,CurrentYear,Department;
 
     long timestamp;

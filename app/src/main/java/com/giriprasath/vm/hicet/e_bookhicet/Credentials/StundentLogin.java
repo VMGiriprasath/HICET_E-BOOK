@@ -4,23 +4,22 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.giriprasath.vm.hicet.e_bookhicet.Credentials.Adapter.AdapterCategory;
 import com.giriprasath.vm.hicet.e_bookhicet.Credentials.Adapter.Adapterpdfuser;
 import com.giriprasath.vm.hicet.e_bookhicet.Credentials.Model.Modelpdf;
+import com.giriprasath.vm.hicet.e_bookhicet.Credentials.credential.LoginActivity;
 import com.giriprasath.vm.hicet.e_bookhicet.R;
 import com.giriprasath.vm.hicet.e_bookhicet.databinding.ActivityStundentLoginBinding;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -40,7 +39,6 @@ public class StundentLogin extends AppCompatActivity {
     //Array list
 
     private ArrayList<Modelpdf> pdfArrayList;
-    private AdapterCategory adapterCategory;
 
     private Adapterpdfuser adapterpdfuser;
     private String categoryId, categoryTitle;
@@ -52,8 +50,10 @@ public class StundentLogin extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
 
         binding.progressbar.setVisibility(View.VISIBLE);
+
 
         Intent intent = getIntent();
         categoryId = intent.getStringExtra("categoryId");
@@ -93,7 +93,7 @@ public class StundentLogin extends AppCompatActivity {
                                     checkuser();
 
                                 }//if we click Developer option
-                               /* else if (which == 2) {
+                                else if (which == 2) {
                                     dialog1 = new Dialog(StundentLogin.this);
                                     dialog1.setContentView(R.layout.developer_details);
                                     dialog1.setCancelable(false);
@@ -107,8 +107,7 @@ public class StundentLogin extends AppCompatActivity {
                                     });
                                     dialog1.show();
 
-                                }*/
-                                else if (which == 3) {
+                                } else if (which == 3) {
                                     //Report for bug
                                     Intent intent = new Intent(Intent.ACTION_SENDTO);
                                     intent.setData(Uri.parse("mailto:giriprasath.project2002@gmail.com")); // only email apps should handle this
@@ -129,6 +128,13 @@ public class StundentLogin extends AppCompatActivity {
     }
 
     private void checkuser() {
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser == null) {
+            Intent intent = new Intent(StundentLogin.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
     }
 
@@ -140,6 +146,7 @@ public class StundentLogin extends AppCompatActivity {
         ref0.child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 String condition1 = "" + snapshot.child("Condition").getValue();
 
 
@@ -204,7 +211,7 @@ public class StundentLogin extends AppCompatActivity {
                 String email = "" + snapshot.child("E-mail").getValue();
 
 
-                binding.cardname.setText(name);
+                binding.cardname.setText(name.substring(0, 1).toUpperCase() + name.substring(1));
                 binding.emailtv.setText(email);
                 binding.currentyeartv.setText(year);
                 binding.currentdepartmenttv.setText(depart);

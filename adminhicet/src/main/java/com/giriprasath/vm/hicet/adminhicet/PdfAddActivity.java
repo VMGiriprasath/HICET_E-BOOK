@@ -7,11 +7,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Notification;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +31,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -48,7 +51,7 @@ public class PdfAddActivity extends AppCompatActivity {
     private Uri pdfuri = null;
     private FirebaseAuth firebaseAuth;
     String spinnerdepartmentglobal, spinneryearglobal;
-    String[] depatments = {"IT", "CSE", "AI & ML", "ECE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME", "AUTOMOBILE", "FOOD TECH", "CHEMICAL"};
+    String[] depatments = {"IT", "CSE", "AI & ML", "ECE","EIE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME", "AUTOMOBILE", "FOOD TECH", "CHEMICAL"};
     String[] year = {"I YEAR", "II YEAR", "III YEAR", "IV YEAR"};
     ArrayAdapter<String> arrayAdapter_year;
     ArrayAdapter<String> arrayAdapter_department;
@@ -177,6 +180,7 @@ public class PdfAddActivity extends AppCompatActivity {
                         //upload to firebase db
                         UploadInfoindb(uploadedpdfurl, timestamp);
 
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -219,6 +223,7 @@ public class PdfAddActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Successfully Uploaded", Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
+
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {

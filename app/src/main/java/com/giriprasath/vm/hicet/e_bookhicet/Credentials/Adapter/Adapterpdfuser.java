@@ -23,10 +23,10 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class Adapterpdfuser extends RecyclerView.Adapter<Adapterpdfuser.HolderPdfUser>{
-    private Context context;
+    private final Context context;
     public ArrayList<Modelpdf>pdfArrayList;
     private RowPdfUserBinding binding;
-    private ProgressDialog dialog;
+    private final ProgressDialog dialog;
 
 
     public Adapterpdfuser(Context context, ArrayList<Modelpdf> pdfArrayList) {
@@ -57,8 +57,8 @@ public class Adapterpdfuser extends RecyclerView.Adapter<Adapterpdfuser.HolderPd
         Intent intent = ((Activity) context).getIntent();
 
         //set datas
-        holder.titletv.setText(title);
-        holder.desctv.setText(description);
+        holder.titletv.setText(title.substring(0, 1).toUpperCase() + title.substring(1));
+        holder.desctv.setText(description.substring(0, 1).toUpperCase() + description.substring(1));
         holder.dateTv.setText(date);
         holder.sizeTv.setText(fac);
 

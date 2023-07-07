@@ -25,10 +25,10 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class AdapterpdfAdmin extends RecyclerView.Adapter<AdapterpdfAdmin.HolderpdfAdmin> {
-    private Context context;
-    private ArrayList<Modelpdf> pdfArrayList;
+    private final Context context;
+    private final ArrayList<Modelpdf> pdfArrayList;
     private RowPdfAdminBinding binding;
-    private ProgressDialog dialog;
+    private final ProgressDialog dialog;
 
 
     public AdapterpdfAdmin(Context context, ArrayList<Modelpdf> pdfArrayList) {
@@ -58,8 +58,8 @@ public class AdapterpdfAdmin extends RecyclerView.Adapter<AdapterpdfAdmin.Holder
         String date = getDate(timestamp);
         String fac = model.getFacultyname();
         String categoryId = model.getCategoryId();
-        holder.titletv.setText(title);
-        holder.desctv.setText(description);
+        holder.titletv.setText(title.substring(0, 1).toUpperCase() + title.substring(1));
+        holder.desctv.setText(description.substring(0, 1).toUpperCase() + description.substring(1));
         holder.datetv.setText(date);
         holder.sizetv.setText(fac);
 

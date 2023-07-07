@@ -26,10 +26,10 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class AdapterpdfAdmin extends RecyclerView.Adapter<AdapterpdfAdmin.HolderpdfAdmin> {
-    private Context context;
-    private ArrayList<Modelpdf> pdfArrayList;
+    private final Context context;
+    private final ArrayList<Modelpdf> pdfArrayList;
     private RowPdfAdminBinding binding;
-    private ProgressDialog dialog;
+    private final ProgressDialog dialog;
 
 
     public AdapterpdfAdmin(Context context, ArrayList<Modelpdf> pdfArrayList) {

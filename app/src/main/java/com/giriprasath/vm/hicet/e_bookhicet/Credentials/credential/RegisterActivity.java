@@ -30,7 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     //Progress Dialogue
     private ProgressDialog progressDialog;
-    String[] depatments = {"IT", "CSE", "AI & ML", "ECE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME","AUTOMOBILE","FOOD TECH","CHEMICAL"};
+    String[] depatments = {"IT", "CSE", "AI & ML", "ECE", "EIE", "EEE", "MCT", "CIVIL", "MECH", "AERO", "BME", "AUTOMOBILE", "FOOD TECH", "CHEMICAL"};
     String[] year = {"I YEAR", "II YEAR", "III YEAR", "IV YEAR"};
     ArrayAdapter<String> arrayAdapter_year;
     ArrayAdapter<String> arrayAdapter_department;
@@ -117,11 +117,11 @@ public class RegisterActivity extends AppCompatActivity {
 
                 } else {
                     //method call
-                    createUserAccount(spinnerdepart,Spinneryear);
+                    createUserAccount(spinnerdepart, Spinneryear);
                 }
             }
 
-            private void createUserAccount(String a,String b) {
+            private void createUserAccount(String a, String b) {
                 progressDialog.setMessage("Creating Account...");
                 progressDialog.show();
                 //Create user in Firebase Auth
@@ -144,7 +144,7 @@ public class RegisterActivity extends AppCompatActivity {
                         hashMap.put("Department", a);
                         hashMap.put("CurrentYear", b);
                         hashMap.put("Timestamp", timestamp);
-                        hashMap.put("Condition",b+a);
+                        hashMap.put("Condition", b + a);
                         FirebaseDatabase firebaseDatabase;
                         DatabaseReference ref;
                         firebaseDatabase = FirebaseDatabase.getInstance();

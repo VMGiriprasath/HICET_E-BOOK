@@ -30,7 +30,7 @@ public class PdfDetailsActivity extends AppCompatActivity {
     String bookid, bookTitle, bookUrl;
     private ActivityPdfDetailsBinding binding;
     //request permision
-    private ActivityResultLauncher<String> requestpermissionauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+    private final ActivityResultLauncher<String> requestpermissionauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
 
         if (isGranted) {
             MyApplication.downloadbook(this, "" + bookid, "" + bookTitle, "" + bookUrl);
@@ -74,15 +74,15 @@ public class PdfDetailsActivity extends AppCompatActivity {
                 }
             }
         });
-  binding.viewbook.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-          Intent intent1=new Intent(PdfDetailsActivity.this, PdfViewActivity.class);
-          intent1.putExtra("bookId",bookid);
-          startActivity(intent1);
+        binding.viewbook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1 = new Intent(PdfDetailsActivity.this, PdfViewActivity.class);
+                intent1.putExtra("bookId", bookid);
+                startActivity(intent1);
 
-      }
-  });
+            }
+        });
     }
 
     private void loadBookdetails() {
@@ -102,14 +102,14 @@ public class PdfDetailsActivity extends AppCompatActivity {
                 String date = getDate(timestamp);
                 String time = getTime(timestamp);
                 MyApplication.loadcategory("" + categoryid, binding.categoryTv);
-                binding.toolbar.setTitle("Notes");
+                binding.toolbar.setTitle("Book");
 
                 //set data
-                binding.titleTv.setText(bookTitle);
+                binding.titleTv.setText(bookTitle.substring(0, 1).toUpperCase() + bookTitle.substring(1));
                 binding.downloadbookbtn.setVisibility(View.VISIBLE);
-                binding.descriptiontv.setText(description);
+                binding.descriptiontv.setText(description.substring(0, 1).toUpperCase() + description.substring(1));
                 binding.DateTv.setText(date);
-                binding.FacultynameTv.setText(Facultyname);
+                binding.FacultynameTv.setText(Facultyname.substring(0, 1).toUpperCase() + Facultyname.substring(1));
                 binding.Timetv.setText(time);
                 binding.currentyeartv.setText(Currentyear);
                 binding.currentdepartmenttv.setText(currentdept);

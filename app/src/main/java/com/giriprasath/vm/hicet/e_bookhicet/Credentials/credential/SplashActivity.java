@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.giriprasath.vm.hicet.e_bookhicet.Credentials.StundentLogin;
 import com.giriprasath.vm.hicet.e_bookhicet.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SplashActivity extends AppCompatActivity {
     public static final int MILLI = 2000;
-    FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
 
 
     @Override
@@ -22,12 +24,23 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent loginintent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(loginintent);
-                finish();
+              checkuser();
             }
         }, MILLI);
 
 
+    }
+
+    private void checkuser() {
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
+        if (firebaseUser==null){
+            Intent intent=new Intent(SplashActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }else{
+            Intent intent=new Intent(SplashActivity.this, StundentLogin.class);
+            startActivity(intent);
+            finish();
+        }
     }
 }

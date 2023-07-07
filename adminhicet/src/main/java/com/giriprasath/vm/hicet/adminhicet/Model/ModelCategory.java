@@ -1,8 +1,8 @@
 package com.giriprasath.vm.hicet.adminhicet.Model;
 
 public class ModelCategory {
-    String id,category,uid,rollnumber,year,department;
-    long timestamp;
+    private String id, category, uid, rollnumber, year, department;
+    private long timestamp;
 
     public ModelCategory() {
     }

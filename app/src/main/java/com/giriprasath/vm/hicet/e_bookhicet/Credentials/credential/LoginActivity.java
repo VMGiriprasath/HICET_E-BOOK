@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                 firebaseAuth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
+                        progressDialog.dismiss();
                         Intent intent = new Intent(LoginActivity.this, StundentLogin.class);
                         startActivity(intent);
                         finish();
@@ -86,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
