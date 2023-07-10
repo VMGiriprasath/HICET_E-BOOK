@@ -24,8 +24,6 @@ import java.util.HashMap;
 
 public class RegisterActivity extends AppCompatActivity {
     public ActivityRegisterBinding binding;
-    String spindep_item;
-    String spinyear;
     //Firebase Authentication
     private FirebaseAuth firebaseAuth;
     //Progress Dialogue

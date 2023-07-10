@@ -146,7 +146,6 @@ public class StundentLogin extends AppCompatActivity {
         ref0.child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 String condition1 = "" + snapshot.child("Condition").getValue();
 
 
@@ -167,6 +166,7 @@ public class StundentLogin extends AppCompatActivity {
                             adapterpdfuser = new Adapterpdfuser(StundentLogin.this, pdfArrayList);
 
                             if (pdfArrayList.size() == 0) {
+                                pdfArrayList.clear();
                                 binding.nonotes.setVisibility(View.VISIBLE);
                                 binding.reporticon.setVisibility(View.VISIBLE);
 
@@ -227,5 +227,17 @@ public class StundentLogin extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        settextname();
+        loaddata();
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        settextname();
+        loaddata();
+    }
 }
