@@ -28,6 +28,7 @@ import java.util.Locale;
 public class PdfDetailsActivity extends AppCompatActivity {
     String bookid, bookTitle, bookUrl;
     private ActivityPdfDetailsBinding binding;
+
     //request permision
     private final ActivityResultLauncher<String> requestpermissionauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
 
@@ -62,7 +63,8 @@ public class PdfDetailsActivity extends AppCompatActivity {
         binding.downloadbookbtn.setVisibility(View.GONE);
 
         loadBookdetails();
-//handle download book
+
+        //handle download book
         binding.downloadbookbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
